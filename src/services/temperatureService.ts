@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { Location } from '../models/locationModel';
-
-const apiKey = '8ff08b396c384f95830210858241408';
+import dotenv from 'dotenv';
+dotenv.config();
+const apiKey = process.env.OPENWEATHER_API_KEY
 const apiUrl = `http://api.weatherapi.com/v1/current.json`;
 
 export const getTemperatureByLocation = async (lat: number, lon: number): Promise<Location> => {
